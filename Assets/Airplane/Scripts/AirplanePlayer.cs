@@ -8,12 +8,18 @@ public class AirplanePlayer : MonoBehaviour
     protected Transform m_transform;
     public int m_life = 3;
     
+    public AudioClip m_shootClip;  // 声音
+    protected AudioSource m_audio;  // 声音源
+    public Transform m_explosionFX;
+    
+    
     public Transform m_rocket;
     float m_rocketTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
         m_transform = this.transform;
+        m_audio = this.GetComponent<AudioSource>();
 
     }
 
@@ -63,6 +69,7 @@ public class AirplanePlayer : MonoBehaviour
             if ( Input.GetKey( KeyCode.Space ) || Input.GetMouseButton(0) )
             {
                 Instantiate( m_rocket, m_transform.position, m_transform.rotation );
+                m_audio.PlayOneShot(m_shootClip);
                 
             }
         }
@@ -74,8 +81,9 @@ public class AirplanePlayer : MonoBehaviour
         {
             m_life -= 1;  // 减少生命
             
-            if (m_life <= 0) 
+            if (m_life <= 0)
             {
+                Instantiate(m_explosionFX, m_transform.position, Quaternion.identity);
                 Destroy(this.gameObject);  // 自我销毁
             }
         }
