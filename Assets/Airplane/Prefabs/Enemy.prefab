@@ -89,6 +89,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 1
   m_life: 10
+  m_point: 10
+  m_explosionFX: {fileID: 400000, guid: fd0604056527c68458f893a5f9dc89e6, type: 3}
 --- !u!65 &826848982218458363
 BoxCollider:
   m_ObjectHideFlags: 0

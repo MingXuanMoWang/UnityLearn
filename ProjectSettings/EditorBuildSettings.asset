@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Airplane/AirplaneTitle.unity
+    guid: 6f9063ac72311004c901c9b03617cfbe
+  - enabled: 1
+    path: Assets/Airplane/AirplaneGame.unity
+    guid: ea4f78e902f681b4398046b60d7e8ba0
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

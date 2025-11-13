@@ -7,7 +7,9 @@ public class AirplaneEnemy : MonoBehaviour
     public float m_speed = 1;   // 速度
     public float m_life = 10;   // 生命
     protected float m_rotSpeed = 30;    // 旋转速度
-    
+    public int m_point = 10;
+    public Transform m_explosionFX;
+
     
     internal Renderer m_renderer;  // 模型渲染组件
     internal bool m_isActiv = false;  // 是否激活
@@ -52,6 +54,8 @@ public class AirplaneEnemy : MonoBehaviour
 
                 if (m_life <= 0)
                 {
+                    AirplaneGameManager.Instance.AddScore(m_point);  // 添加代码,更新UI上的分数
+                    Instantiate(m_explosionFX, transform.position, Quaternion.identity);
                     Destroy(this.gameObject);  // 自我销毁
                 }
             }
@@ -59,6 +63,8 @@ public class AirplaneEnemy : MonoBehaviour
         else if (other.tag == "Player")  // 如果撞到主角
         {
             m_life = 0;
+            AirplaneGameManager.Instance.AddScore(m_point);  // 添加代码,更新UI上的分数
+            Instantiate(m_explosionFX, transform.position, Quaternion.identity);
             Destroy(this.gameObject); // 自我销毁
         }
     }

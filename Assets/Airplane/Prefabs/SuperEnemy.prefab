@@ -133,4 +133,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 1
   m_life: 50
+  m_point: 10
+  m_explosionFX: {fileID: 400000, guid: fd0604056527c68458f893a5f9dc89e6, type: 3}
   m_rocket: {fileID: 3096764558820719100, guid: b697b19e6f696fd42a31cdeab9f0f86b, type: 3}
