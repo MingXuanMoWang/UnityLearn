@@ -12,7 +12,8 @@ public class AirplaneRocket : MonoBehaviour
     {
         if (this.enabled)
         {
-            Destroy(this.gameObject);
+            // Destroy(this.gameObject);
+            Despawn();
         }
     }
 
@@ -33,6 +34,25 @@ public class AirplaneRocket : MonoBehaviour
         if (other.tag!="Enemy")
             return;
 
-        Destroy(this.gameObject);
+        // Destroy(this.gameObject);
+        Despawn();
+    }
+
+    void Despawn()
+    {
+        if (!gameObject.activeSelf)
+        {
+            return;
+        }
+
+        var spawnPool = PathologicalGames.PoolManager.Pools["mypool"];
+        if (spawnPool.IsSpawned(transform))
+        {
+            spawnPool.Despawn(transform);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

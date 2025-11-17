@@ -73,7 +73,9 @@ public class AirplanePlayer : MonoBehaviour
             // 按空格键或鼠标左键发射子弹
             if ( Input.GetKey( KeyCode.Space ) || Input.GetMouseButton(0) )
             {
-                Instantiate( m_rocket, m_transform.position, m_transform.rotation );
+                // Instantiate( m_rocket, m_transform.position, m_transform.rotation );
+                var spawnPool = PathologicalGames.PoolManager.Pools["mypool"];
+                spawnPool.Spawn("Rocket", m_transform.position, m_transform.rotation );
                 m_audio.PlayOneShot(m_shootClip);
                 
             }

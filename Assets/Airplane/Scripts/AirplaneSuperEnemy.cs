@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuperAirplaneEnemy : AirplaneEnemy
+public class AirplaneSuperEnemy : AirplaneEnemy
 {
     public Transform m_rocket;
     protected float m_fireTimer = 0;
